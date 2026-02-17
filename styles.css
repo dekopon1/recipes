@@ -1,0 +1,183 @@
+/* ============================================================
+   Recipes App – Minimalist Theme
+   Soft neutrals · Rounded corners · Subtle shadows · Mobile-first
+   ============================================================ */
+
+/* --- Root variables ---------------------------------------------------- */
+:root {
+    --clr-bg:        #fafaf9;
+    --clr-surface:   #ffffff;
+    --clr-border:    #e7e5e4;
+    --clr-text:      #1c1917;
+    --clr-muted:     #78716c;
+    --clr-accent:    #78716c;
+    --clr-accent-bg: #f5f5f4;
+    --radius:        0.75rem;
+    --shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md:     0 2px 8px rgba(0, 0, 0, 0.06);
+    --tap-min:       44px;          /* WCAG minimum touch target */
+    --font-sans:     "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* --- Global resets ----------------------------------------------------- */
+section[data-testid="stSidebar"],
+.main .block-container {
+    font-family: var(--font-sans);
+    color: var(--clr-text);
+}
+
+.main .block-container {
+    max-width: 64rem;
+    padding: 1.5rem 1rem 3rem;
+}
+
+/* --- Backgrounds ------------------------------------------------------- */
+.stApp {
+    background-color: var(--clr-bg);
+}
+
+section[data-testid="stSidebar"] {
+    background-color: var(--clr-surface);
+    border-right: 1px solid var(--clr-border);
+}
+
+section[data-testid="stSidebar"] .block-container {
+    padding-top: 2rem;
+}
+
+/* --- Cards / containers ------------------------------------------------ */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    background: var(--clr-surface);
+    padding: 0.25rem;
+    transition: box-shadow 0.2s ease;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* --- Buttons — large tap targets --------------------------------------- */
+.stButton > button {
+    min-height: var(--tap-min);
+    min-width: var(--tap-min);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--clr-border);
+    background: var(--clr-surface);
+    color: var(--clr-text);
+    font-size: 0.925rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.stButton > button:hover {
+    background: var(--clr-accent-bg);
+    box-shadow: var(--shadow-md);
+}
+
+.stButton > button:active {
+    transform: scale(0.98);
+}
+
+/* --- Checkboxes — larger hit area -------------------------------------- */
+div[data-testid="stCheckbox"] label {
+    min-height: var(--tap-min);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    cursor: pointer;
+}
+
+div[data-testid="stCheckbox"] label span[data-testid="stCheckboxLabel"] {
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+/* --- Expanders --------------------------------------------------------- */
+details[data-testid="stExpander"] {
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    background: var(--clr-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+details[data-testid="stExpander"] summary {
+    min-height: var(--tap-min);
+    padding: 0.6rem 1rem;
+    font-weight: 500;
+}
+
+/* --- Inputs & selects -------------------------------------------------- */
+.stTextInput input,
+.stSelectbox > div[data-baseweb="select"],
+.stMultiSelect > div[data-baseweb="select"] {
+    min-height: var(--tap-min);
+    border-radius: var(--radius);
+    border-color: var(--clr-border);
+    font-size: 1rem;
+}
+
+.stTextInput input:focus {
+    border-color: var(--clr-accent);
+    box-shadow: 0 0 0 2px rgba(120, 113, 108, 0.15);
+}
+
+/* --- Radio buttons (sidebar nav) --------------------------------------- */
+div[data-testid="stRadio"] label {
+    min-height: var(--tap-min);
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0;
+    font-size: 1rem;
+}
+
+/* --- Images ------------------------------------------------------------ */
+.stImage img {
+    border-radius: var(--radius);
+}
+
+/* --- Captions & subtle text -------------------------------------------- */
+.stCaption, small {
+    color: var(--clr-muted);
+}
+
+/* --- Dividers ---------------------------------------------------------- */
+hr {
+    border: none;
+    border-top: 1px solid var(--clr-border);
+    margin: 1rem 0;
+}
+
+/* --- Scrollbar (subtle) ------------------------------------------------ */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--clr-border);
+    border-radius: 3px;
+}
+
+/* --- Mobile tweaks ----------------------------------------------------- */
+@media (max-width: 768px) {
+    .main .block-container {
+        padding: 1rem 0.75rem 2rem;
+    }
+
+    .stButton > button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    section[data-testid="stSidebar"] {
+        min-width: 0 !important;
+    }
+}
