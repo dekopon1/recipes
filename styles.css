@@ -1,17 +1,11 @@
 /* ============================================================
    Recipes App – Minimalist Theme
-   Soft neutrals · Rounded corners · Subtle shadows · Mobile-first
+   Rounded corners · Subtle shadows · Large tap targets · Mobile-first
+   Colors are left to Streamlit's native theme to avoid conflicts.
    ============================================================ */
 
-/* --- Root variables ---------------------------------------------------- */
+/* --- Layout variables -------------------------------------------------- */
 :root {
-    --clr-bg:        #fafaf9;
-    --clr-surface:   #ffffff;
-    --clr-border:    #e7e5e4;
-    --clr-text:      #1c1917;
-    --clr-muted:     #78716c;
-    --clr-accent:    #78716c;
-    --clr-accent-bg: #f5f5f4;
     --radius:        0.75rem;
     --shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.04);
     --shadow-md:     0 2px 8px rgba(0, 0, 0, 0.06);
@@ -23,22 +17,11 @@
 section[data-testid="stSidebar"],
 .main .block-container {
     font-family: var(--font-sans);
-    color: var(--clr-text);
 }
 
 .main .block-container {
     max-width: 64rem;
     padding: 1.5rem 1rem 3rem;
-}
-
-/* --- Backgrounds ------------------------------------------------------- */
-.stApp {
-    background-color: var(--clr-bg);
-}
-
-section[data-testid="stSidebar"] {
-    background-color: var(--clr-surface);
-    border-right: 1px solid var(--clr-border);
 }
 
 section[data-testid="stSidebar"] .block-container {
@@ -47,10 +30,8 @@ section[data-testid="stSidebar"] .block-container {
 
 /* --- Cards / containers ------------------------------------------------ */
 div[data-testid="stVerticalBlockBorderWrapper"] {
-    border: 1px solid var(--clr-border);
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
-    background: var(--clr-surface);
     padding: 0.25rem;
     transition: box-shadow 0.2s ease;
 }
@@ -65,18 +46,14 @@ div[data-testid="stVerticalBlockBorderWrapper"]:hover {
     min-width: var(--tap-min);
     padding: 0.5rem 1.25rem;
     border-radius: var(--radius);
-    border: 1px solid var(--clr-border);
-    background: var(--clr-surface);
-    color: var(--clr-text);
     font-size: 0.925rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.15s ease, box-shadow 0.15s ease;
+    transition: box-shadow 0.15s ease;
     box-shadow: var(--shadow-sm);
 }
 
 .stButton > button:hover {
-    background: var(--clr-accent-bg);
     box-shadow: var(--shadow-md);
 }
 
@@ -101,9 +78,7 @@ div[data-testid="stCheckbox"] label span[data-testid="stCheckboxLabel"] {
 
 /* --- Expanders --------------------------------------------------------- */
 details[data-testid="stExpander"] {
-    border: 1px solid var(--clr-border);
     border-radius: var(--radius);
-    background: var(--clr-surface);
     box-shadow: var(--shadow-sm);
 }
 
@@ -119,13 +94,7 @@ details[data-testid="stExpander"] summary {
 .stMultiSelect > div[data-baseweb="select"] {
     min-height: var(--tap-min);
     border-radius: var(--radius);
-    border-color: var(--clr-border);
     font-size: 1rem;
-}
-
-.stTextInput input:focus {
-    border-color: var(--clr-accent);
-    box-shadow: 0 0 0 2px rgba(120, 113, 108, 0.15);
 }
 
 /* --- Radio buttons (sidebar nav) --------------------------------------- */
@@ -142,15 +111,9 @@ div[data-testid="stRadio"] label {
     border-radius: var(--radius);
 }
 
-/* --- Captions & subtle text -------------------------------------------- */
-.stCaption, small {
-    color: var(--clr-muted);
-}
-
 /* --- Dividers ---------------------------------------------------------- */
 hr {
     border: none;
-    border-top: 1px solid var(--clr-border);
     margin: 1rem 0;
 }
 
@@ -160,10 +123,6 @@ hr {
 }
 ::-webkit-scrollbar-track {
     background: transparent;
-}
-::-webkit-scrollbar-thumb {
-    background: var(--clr-border);
-    border-radius: 3px;
 }
 
 /* --- Mobile tweaks ----------------------------------------------------- */
